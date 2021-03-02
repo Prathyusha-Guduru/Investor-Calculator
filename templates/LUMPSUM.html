@@ -1,1 +1,12 @@
 <h1>LUMPSUM Caclulator</h1>
+
+<form method="POST">
+	{{lumpsum_form.hidden_tag()}}
+	{{lumpsum_form.investment.label}} {{lumpsum_form.investment}}
+	<br>
+	{{lumpsum_form.time_period.label}} {{lumpsum_form.time_period}}
+	<br>
+	{{lumpsum_form.expected_return_rate.label}} {{lumpsum_form.expected_return_rate}}
+	<br>
+	{{lumpsum_form.submit()}}
+</form>

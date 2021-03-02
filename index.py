@@ -14,6 +14,9 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'izzasecret'
 
 
+#Global values for choice
+choice = ''
+
 #Form Class for choosing the calculator
 class calculator_choice(FlaskForm):
 	calculator = RadioField('SIP OR LUMPSUM', choices=[('lumpsum','lumpsum'),('sip','sip')])
@@ -45,8 +48,10 @@ def index():
 		print('Form submitted')
 		session['calculator'] = choosen.calculator.data
 		if(session['calculator'] == 'lumpsum'):
+			choice = 'sip'
 			return redirect(url_for('lumpsum'))
 		elif(session['calculator'] == 'sip'):
+			choice = 'lumpsum'
 			return redirect(url_for('sip'))
 	else:
 		print("Oooooopsy!")
@@ -78,14 +83,16 @@ def sip():
 
 @app.route('/lumpsum',methods = ['GET','POST'])
 def lumpsum():
-	lupsum_form = LUMPSUM_Form()
-	if form.validate_on_submit():
-		session['investment'] = float(form.investment.data)
-		session['expected_return_rate'] = float(form.expected_return_rate.data)
-		session['time_period'] = float(form.time_period.data)
-		n = session['time_period'] * 12
-		session['maturity_value']=round((session['monthly_investment'] * (1+monthly_rate_of_return) * ((pow((1+monthly_rate_of_return),n)) - 1)/monthly_rate_of_return),2)
-	return render_template('LUMPSUM.html')
+	lumpsum_form = LUMPSUM_Form()
+	if lumpsum_form.validate_on_submit():
+		session['investment'] = float(lumpsum_form.investment.data)
+		session['lumpsum_rate'] = float(lumpsum_form.expected_return_rate.data)
+		session['lumpsum_time_period'] = float(lumpsum_form.time_period.data)
+		lumpsum_n = session['lumpsum_time_period']*12
+		session['lumpsum_maturity_value'] = session['investment'] * ((1+ (session['lumpsum_rate']/100))**session['lumpsum_time_period'])
+		return redirect(url_for('result'))
+		
+	return render_template('LUMPSUM.html',lumpsum_form = lumpsum_form)
 
 
 
@@ -93,7 +100,7 @@ def lumpsum():
 
 @app.route('/result',methods = ['GET','POST'])
 def result():
-	return render_template('result.html')
+	return render_template('result.html',choice = choice)
 
 
 if __name__ == '__main__':
