@@ -17,6 +17,10 @@ class SIP_Form(FlaskForm):
 	submit = SubmitField('Submit')
 
 class LUMPSUM_Form(FlaskForm):
+	investment = StringField('Total Investment')
+	expected_return_rate = StringField('Return Rate : ')
+	time_period = StringField('Time period : ')
+	submit = SubmitField('submit')
 
 
 @app.route('/',methods = ['GET','POST'])
