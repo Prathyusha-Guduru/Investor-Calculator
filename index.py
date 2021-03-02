@@ -89,7 +89,7 @@ def lumpsum():
 		session['lumpsum_rate'] = float(lumpsum_form.expected_return_rate.data)
 		session['lumpsum_time_period'] = float(lumpsum_form.time_period.data)
 		lumpsum_n = session['lumpsum_time_period']*12
-		session['lumpsum_maturity_value'] = session['investment'] * ((1+ (session['lumpsum_rate']/100))**session['lumpsum_time_period'])
+		session['lumpsum_maturity_value'] = round(session['investment'] * ((1+ (session['lumpsum_rate']/100))**session['lumpsum_time_period']),2)
 		return redirect(url_for('result'))
 		
 	return render_template('LUMPSUM.html',lumpsum_form = lumpsum_form)
