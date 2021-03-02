@@ -59,18 +59,18 @@ def index():
 @app.route('/SIP',methods = ['GET','POST'])
 def sip():
 	
-	form = SIP_Form()
-	if form.validate_on_submit():
-		session['monthly_investment'] = float(form.monthly_investment.data)
-		session['time_period'] = float(form.time_period.data)
-		session['expected_return_rate'] = float(form.expected_return_rate.data)
+	sip_form = SIP_Form()
+	if sip_form.validate_on_submit():
+		session['monthly_investment'] = float(sip_form.monthly_investment.data)
+		session['time_period'] = float(sip_form.time_period.data)
+		session['expected_return_rate'] = float(sip_form.expected_return_rate.data)
 		monthly_rate_of_return = session['expected_return_rate']/1200
 		n = session['time_period'] * 12
 		session['maturity_value']=round((session['monthly_investment'] * (1+monthly_rate_of_return) * ((pow((1+monthly_rate_of_return),n)) - 1)/monthly_rate_of_return),2)
 
 
 		return redirect(url_for('result'))
-	return render_template('SIP.html',form = form)
+	return render_template('SIP.html',sip_form = sip_form)
 
 
 
@@ -78,9 +78,13 @@ def sip():
 
 @app.route('/lumpsum',methods = ['GET','POST'])
 def lumpsum():
-	form = LUMPSUM_Form()
+	lupsum_form = LUMPSUM_Form()
 	if form.validate_on_submit():
-		session['in']
+		session['investment'] = float(form.investment.data)
+		session['expected_return_rate'] = float(form.expected_return_rate.data)
+		session['time_period'] = float(form.time_period.data)
+		n = session['time_period'] * 12
+		session['maturity_value']=round((session['monthly_investment'] * (1+monthly_rate_of_return) * ((pow((1+monthly_rate_of_return),n)) - 1)/monthly_rate_of_return),2)
 	return render_template('LUMPSUM.html')
 
 

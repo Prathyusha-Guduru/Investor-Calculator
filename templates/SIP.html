@@ -11,14 +11,14 @@
 <body>
 	<h1>SIP CALCULATOR</h1>
 	<form method="POST">
-		{{ form.hidden_tag() }}
-		{{form.monthly_investment.label}} {{form.monthly_investment}}
+		{{ sip_form.hidden_tag() }}
+		{{sip_form.monthly_investment.label}} {{sip_form.monthly_investment}}
 		<br>
-		{{form.time_period.label}} {{form.time_period}}
+		{{sip_form.time_period.label}} {{sip_form.time_period}}
 		<br>
-		{{form.expected_return_rate.label}} {{form.expected_return_rate}}
+		{{sip_form.expected_return_rate.label}} {{sip_form.expected_return_rate}}
 		<br>
-		{{ form.submit()}}
+		{{ sip_form.submit()}}
 
 	</form>
 </body>
