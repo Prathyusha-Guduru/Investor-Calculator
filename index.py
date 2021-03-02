@@ -11,20 +11,18 @@ app.config['SECRET_KEY'] = 'izzasecret'
 
 
 class SIP_Form(FlaskForm):
-	name = StringField('Your name : ')
 	monthly_investment = DecimalField('Your Monthly Investment')
-	age = StringField('Age (Not to make you feel old) : ')
-	virgin = BooleanField('Are you a virgin : ')
 	expected_return_rate = StringField('Return Rate : ')
 	time_period = StringField('Time Period : ')
 	submit = SubmitField('Submit')
+
+class LUMPSUM_Form(FlaskForm):
+
 
 @app.route('/',methods = ['GET','POST'])
 def index():
 	form = SIP_Form()
 	if form.validate_on_submit():
-		session['name'] =  form.name.data + 'Chutiya hai' 
-		session['age'] = float(form.age.data)
 		session['monthly_investment'] = float(form.monthly_investment.data)
 		session['time_period'] = float(form.time_period.data)
 		session['expected_return_rate'] = float(form.expected_return_rate.data)
