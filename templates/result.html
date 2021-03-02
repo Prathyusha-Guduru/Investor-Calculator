@@ -1,9 +1,13 @@
 <h1>Results </h1>
 
 
+
+{% if choice == 'sip' %}
 <ul>
 	<li>SIP MATURITY VALUE : {{session['maturity_value']}}</li>
 </ul>
+{% elif choice == 'lumpsum' %}
 <ul>
 	<li>LUMPSUM MATURITY VALUE : {{session['lumpsum_maturity_value']}} </li>
 </ul>
+{% endif %}

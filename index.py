@@ -47,11 +47,12 @@ def index():
 	if choosen.validate_on_submit():
 		print('Form submitted')
 		session['calculator'] = choosen.calculator.data
+		global choice
 		if(session['calculator'] == 'lumpsum'):
-			choice = 'sip'
+			choice = 'lumpsum'
 			return redirect(url_for('lumpsum'))
 		elif(session['calculator'] == 'sip'):
-			choice = 'lumpsum'
+			choice = 'sip'
 			return redirect(url_for('sip'))
 	else:
 		print("Oooooopsy!")
@@ -100,6 +101,8 @@ def lumpsum():
 
 @app.route('/result',methods = ['GET','POST'])
 def result():
+	global choice
+	print('Selected calculator is ' + choice)
 	return render_template('result.html',choice = choice)
 
 
