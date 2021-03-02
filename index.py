@@ -27,13 +27,18 @@ class LUMPSUM_Form(FlaskForm):
 
 @app.route('/',methods = ['GET','POST'])
 def index():
+
 	choosen = calculator_choice()
+	print('index() being executed')
 	if choosen.validate_on_submit():
+		print('Form submitted')
 		session['calculator'] = choosen.calculator.data
 		if(session['calculator'] == 'lumpsum'):
 			return redirect(url_for('lumpsum'))
 		elif(session['calculator'] == 'sip'):
 			return redirect(url_for('sip'))
+	else:
+		print("Oooooopsy!")
 	return render_template('index.html',choosen = choosen)
 
 
