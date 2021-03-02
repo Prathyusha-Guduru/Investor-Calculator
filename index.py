@@ -1,7 +1,7 @@
 import decimal
 from flask import Flask, render_template, session, redirect, url_for, session, flash
 from flask_wtf import FlaskForm
-from wtforms import (StringField, BooleanField,SubmitField,DecimalField,IntegerField)
+from wtforms import (StringField, BooleanField,SubmitField,DecimalField,RadioField)
 from wtforms.validators import DataRequired
 from math import pow
 
@@ -9,6 +9,9 @@ from math import pow
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'izzasecret'
 
+class calculator_choice(FlaskForm):
+	calculator = RadioField('SIP OR LUMPSUM', choices=[('lumpsum','lumpsum'),('sip','sip')])
+	submit = SubmitField('submit')
 
 class SIP_Form(FlaskForm):
 	monthly_investment = DecimalField('Your Monthly Investment')
@@ -22,9 +25,20 @@ class LUMPSUM_Form(FlaskForm):
 	time_period = StringField('Time period : ')
 	submit = SubmitField('submit')
 
-
 @app.route('/',methods = ['GET','POST'])
 def index():
+	choosen = calculator_choice()
+	if choosen.validate_on_submit():
+		session['calculator'] = choosen.calculator.data
+		if(session['calculator'] == 'lumpsum'):
+			return redirect(url_for('lumpsum'))
+		elif(session['calculator'] == 'sip'):
+			return redirect(url_for('sip'))
+	return render_template('index.html',choosen = choosen)
+
+
+@app.route('/SIP',methods = ['GET','POST'])
+def sip():
 	form = SIP_Form()
 	if form.validate_on_submit():
 		session['monthly_investment'] = float(form.monthly_investment.data)
@@ -36,9 +50,12 @@ def index():
 
 
 		return redirect(url_for('result'))
-	return render_template('index.html',form = form)
+	return render_template('SIP.html',form = form)
 
 
+@app.route('/lumpsum',methods = ['GET','POST'])
+def lumpsum():
+	return render_template('LUMPSUM.html')
 
 @app.route('/result',methods = ['GET','POST'])
 def result():
