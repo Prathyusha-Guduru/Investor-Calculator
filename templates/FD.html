@@ -1,0 +1,12 @@
+<h1>FD Caclulator</h1>
+
+<form method="POST">
+	{{fd_form.hidden_tag()}}
+	{{fd_form.investment.label}} {{fd_form.investment}}
+	<br>
+	{{fd_form.time_period.label}} {{fd_form.time_period}}
+	<br>
+	{{fd_form.rate_of_interest.label}} {{fd_form.rate_of_interest}}
+	<br>
+	{{fd_form.submit()}}
+</form>

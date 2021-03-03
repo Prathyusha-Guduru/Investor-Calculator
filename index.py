@@ -19,7 +19,7 @@ choice = ''
 
 #Form Class for choosing the calculator
 class calculator_choice(FlaskForm):
-	calculator = RadioField('SIP OR LUMPSUM', choices=[('lumpsum','lumpsum'),('sip','sip')])
+	calculator = RadioField('SIP OR LUMPSUM', choices=[('lumpsum','lumpsum'),('sip','sip'),('fd','fd')])
 	submit = SubmitField('submit')
 
 #Form class for SIP Calculator
@@ -35,6 +35,14 @@ class LUMPSUM_Form(FlaskForm):
 	expected_return_rate = StringField('Return Rate : ')
 	time_period = StringField('Time period : ')
 	submit = SubmitField('submit')
+
+#Form class for FD calculator
+class FD_Form(FlaskForm):
+	investment = StringField('Total Investment')
+	rate_of_interest = StringField('Return Rate : ')
+	time_period = StringField('Time period : ')
+	submit = SubmitField('submit')
+
 
 
 
@@ -54,6 +62,9 @@ def index():
 		elif(session['calculator'] == 'sip'):
 			choice = 'sip'
 			return redirect(url_for('sip'))
+		elif(session['calculator'] == 'fd'):
+			choice = 'fd'
+			return redirect(url_for('fd'))
 	else:
 		print("Oooooopsy!")
 	return render_template('index.html',choosen = choosen)
@@ -94,6 +105,20 @@ def lumpsum():
 		return redirect(url_for('result'))
 		
 	return render_template('LUMPSUM.html',lumpsum_form = lumpsum_form)
+
+
+
+@app.route('/fd',methods = ['GET','POST'])
+def fd():
+	fd_form = FD_Form()
+	if fd_form.validate_on_submit():
+		session['fd_investment'] = float(fd_form.investment.data)
+		session['fd_rate_of_interest'] = float(fd_form.rate_of_interest.data)
+		session['fd_time_period'] = float(fd_form.time_period.data)
+		session['fd_maturity_value'] = (session['fd_investment']) + ((session['fd_investment'] * session['fd_rate_of_interest'] * session['fd_time_period'])/100)
+		return redirect(url_for('result'))
+		
+	return render_template('FD.html',fd_form = fd_form)
 
 
 

@@ -10,4 +10,8 @@
 <ul>
 	<li>LUMPSUM MATURITY VALUE : {{session['lumpsum_maturity_value']}} </li>
 </ul>
+{% elif choice == 'fd' %}
+<ul>
+	<li>FD MATURITY VALUE : {{session['fd_maturity_value']}} </li>
+</ul>
 {% endif %}
