@@ -70,7 +70,7 @@ def index():
 	return render_template('index.html',choosen = choosen)
 
 
-
+	
 #Method for SIP Calculator Page
 
 @app.route('/SIP',methods = ['GET','POST'])

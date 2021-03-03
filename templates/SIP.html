@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../static/stylesheet.css">
 	<title>SIP Calculator</title>
 </head>
 
@@ -21,6 +22,21 @@
 		{{ sip_form.submit()}}
 
 	</form>
+	<button id="showPlot">Plot</button>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+	<figure class="highcharts-figure">
+		<div id="container"></div>
+		<p class="highcharts-description">
+			A variation of a 3D pie chart with an inner radius added.
+			These charts are often referred to as donut charts.
+		</p>
+	</figure>
+	<script src="../static/script.js"></script>
 </body>
 
 </html>
