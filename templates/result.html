@@ -5,6 +5,10 @@
 {% if choice == 'sip' %}
 <ul>
 	<li>SIP MATURITY VALUE : {{session['maturity_value']}}</li>
+	<form id='sipPlot' method="post">
+		<button type="submit">View Plot</button>
+	</form>
+	<script src="../static/script.js"></script>
 </ul>
 {% elif choice == 'lumpsum' %}
 <ul>
