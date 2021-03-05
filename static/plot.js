@@ -11,8 +11,11 @@ plotForm.addEventListener(('submit'),(e)=>{
 			enabled: true,
 			alpha: 45
 		  },
-		  backgroundColor: "#fff"
+		  backgroundColor: "#e6e7ee"
 		},
+  title: {
+    text: ''
+  },
 		plotOptions: {
 		  pie: {
 			innerSize: 100,
@@ -23,8 +26,8 @@ plotForm.addEventListener(('submit'),(e)=>{
 		  {
 			name: "Delivered amount",
 			data: [
-					['Final Amount',maturityValue],
-					['Investment',investment]
+					['Maturity Value (INR)',maturityValue],
+					['Investmented Amount (INR)',investment]
 			]
 		  }
 		]

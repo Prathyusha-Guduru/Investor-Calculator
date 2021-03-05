@@ -84,6 +84,7 @@ def sip():
 		session['expected_return_rate'] = float(sip_form.expected_return_rate.data)
 		monthly_rate_of_return = session['expected_return_rate']/1200
 		n = session['time_period'] * 12
+		session['n'] = n
 		session['maturity_value']=round((session['monthly_investment'] * (1+monthly_rate_of_return) * ((pow((1+monthly_rate_of_return),n)) - 1)/monthly_rate_of_return),2)
 
 

@@ -6,52 +6,67 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="/static/css/graph_styles.css">
-	<title>Document</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap"
+		rel="stylesheet">
+	<title>Result</title>
 </head>
 
 <body>
-	<h1>Results </h1>
-	<h2>PLEASE WORK</h2>
-	<p>ONLY PROOF THAT SOMETHING HAS CHANGED</p>
+	<main>
 
-	{% if choice == 'sip' %}
-	<ul>
-		<li>SIP MATURITY VALUE : {{session['maturity_value']}}</li>
-		<script>
-			var maturityValue = {{ session['maturity_value'] }}
-			var investment = {{ session['monthly_investment'] }}
+		<h1>Result</h1>
 
-		</script>
-		<form id='plotForm' method="POST">
-			<button type="submit">View Plot</button>
-		</form>
-	</ul>
-	{% elif choice == 'lumpsum' %}
-	<ul>
-		<li>LUMPSUM MATURITY VALUE : {{session['lumpsum_maturity_value'] }} </li>
-		<form id='plotForm' method="POST">
-			<button type="submit">View Plot</button>
-		</form>
-		<script>
-			maturityValue = {{ session['lumpsum_maturity_value'] }}
-			investment = {{ session['lumpsum_investment'] }}
-			console.log('WTF')
-		</script>
-	</ul>
-	{% elif choice == 'fd' %}
-	<ul>
-		<li>FD MATURITY VALUE : {{ session['fd_maturity_value'] }} </li>
-		<form id='plotForm' method="POST">
-			<button type="submit">View Plot</button>
-		</form>
-		<script>
-			maturityValue = {{ session['fd_maturity_value'] }}
-			investment = {{ session['fd_investment'] }}
-			console.log('serious FD SHIT');
-		</script>
-	</ul>
-	{% endif %}
+		{% if choice == 'sip' %}
+		<ul>
+			<h2>If you invest <strong>Rs. {{ session['monthly_investment'] }} </strong> every month for
+				<strong>{{session['time_period']}}</strong> years, Your maturity value will be <strong> Rs.
+					{{session['maturity_value']}}</strong>
+			</h2>
 
+			<script>
+				var maturityValue = {{ session['maturity_value'] }}
+				var investment = {{ session['monthly_investment'] }} * {{ session['n'] }}
+
+			</script>
+			<form id='plotForm' method="POST">
+				<button type="submit">View Plot</button>
+			</form>
+		</ul>
+		{% elif choice == 'lumpsum' %}
+		<ul>
+			<h2>If you invest <strong>Rs. {{ session['lumpsum_investment'] }} </strong> for
+				<strong>{{session['lumpsum_time_period']}}</strong> years, Your maturity value will be <strong> Rs.
+					{{session['lumpsum_maturity_value']}}</strong>
+			</h2>
+			<form id='plotForm' method="POST">
+				<button type="submit">View Plot</button>
+			</form>
+			<script>
+				maturityValue = {{ session['lumpsum_maturity_value'] }}
+				investment = {{ session['lumpsum_investment'] }}
+				console.log('WTF')
+			</script>
+		</ul>
+		{% elif choice == 'fd' %}
+		<ul>
+			<h2>If you invest <strong>Rs. {{ session['fd_investment'] }} </strong> for
+				<strong>{{session['fd_time_period']}}</strong> years, Your maturity value will be <strong> Rs.
+					{{session['fd_maturity_value']}}</strong>
+			</h2>
+			<form id='plotForm' method="POST">
+				<button type="submit">View Plot</button>
+			</form>
+			<script>
+				maturityValue = {{ session['fd_maturity_value'] }}
+				investment = {{ session['fd_investment'] }}
+				console.log('serious FD SHIT');
+			</script>
+		</ul>
+		{% endif %}
+
+
+	</main>
 	<script>
 		console.log('This is some bullshit')
 		var x = 5
@@ -68,8 +83,61 @@
 		<p class="highcharts-description">
 		</p>
 	</figure>
-	<script src="/static/graphs.js"></script>
+	<script src="/static/plot.js"></script>
+	<style>
+		body {
+			background-color: #e6e7ee;
+			height: 100vh;
+			width: 100vw;
+			font-family: 'Montserrat', sans-serif;
+			position: relative;
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
 
+		h2 {
+			font-weight: 300;
+		}
+
+		h1 {
+			padding: 40px 40px;
+		}
+
+		.highcharts-figure {
+			position: relative;
+			right: 330px;
+			margin-top: 40px;
+		}
+
+		@media only screen and (max-width: 600px) {
+
+			body {
+				overflow: scroll;
+			}
+
+			.highcharts-figure {
+				position: relative;
+				left: 10px;
+				width: 90%;
+			}
+		}
+
+		button {
+			background-color: #e6e7ee;
+			border: 0;
+			border-radius: 77px;
+			box-shadow: 8px 8px 8px #cbced1,
+				-8px -8px 8px #fff;
+			width: 150px;
+			height: 50px;
+		}
+
+		button:hover {
+			box-shadow: none;
+		}
+	</style>
 </body>
+
+
 
 </html>
