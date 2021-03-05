@@ -12,6 +12,7 @@ from math import pow
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'izzasecret'
+app.static_folder = 'static'
 
 
 #Global values for choice
