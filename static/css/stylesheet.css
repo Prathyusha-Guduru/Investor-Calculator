@@ -1,3 +1,11 @@
 body {
 	background-color: lightcoral;
 }
+
+.form-box{
+	background-color: #e6e7ee;
+border-radius: 30px;
+box-shadow: 7px 7px 14px #cbced1,
+            -7px -7px 14px #fff;
+
+}

@@ -11,12 +11,16 @@
 </head>
 
 <body>
-	<form method="POST">
-		{{choosen.hidden_tag()}}
-		{{choosen.calculator.label(class = 'random-class')}} {{choosen.calculator}}
-		<br>
-		{{choosen.submit()}}
-	</form>
+	<main>
+		<div class="form-box">
+			<form method="POST">
+				{{choosen.hidden_tag()}}
+				{{choosen.calculator.label(class = 'random-class')}} {{choosen.calculator}}
+				<br>
+				{{choosen.submit()}}
+			</form>
+		</div>
+	</main>
 </body>
 
 </html>
