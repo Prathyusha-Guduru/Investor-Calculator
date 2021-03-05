@@ -27,3 +27,7 @@ main {
 .form-box:hover {
 	box-shadow: none;
 }
+
+::marker{
+	display: none;
+}
