@@ -9,6 +9,7 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	height: 100%;
 	width: 100%;
 }
@@ -28,6 +29,10 @@ main {
 	box-shadow: none;
 }
 
-::marker{
-	display: none;
+ul{
+	list-style-type: none;
+}
+
+.form-heading{
+	background-color: lawngreen;
 }

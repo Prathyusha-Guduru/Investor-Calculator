@@ -17,12 +17,112 @@
 		<div class="form-box">
 			<form method="POST">
 				{{choosen.hidden_tag()}}
-				{{choosen.calculator.label}} {{choosen.calculator}}
+				{{choosen.calculator.label (class = 'form-heading')}} {{choosen.calculator}}
 				<br>
 				{{choosen.submit()}}
 			</form>
 		</div>
+		<footer>
+			<p>Made with 🖤 by <a href="https://github.com/Prathyusha-Guduru/Investor-Calculator">Prathyusha Guduru</a>
+			</p>
+		</footer>
+		<style>
+			body {
+				background-color: #e6e7ee;
+				height: 100vh;
+				width: 100vw;
+				font-family: 'Montserrat', sans-serif;
+				position: relative;
+				overflow-y: hidden;
+				overflow-x: hidden;
+			}
+
+			main {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+				flex-direction: column;
+			}
+
+			.form-box {
+				background-color: #e6e7ee;
+				border-radius: 30px;
+				box-shadow: 7px 7px 14px #cbced1,
+					-7px -7px 14px #fff;
+				width: 500px;
+				height: 400px;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+			}
+
+			.form-box:hover {
+				box-shadow: none;
+			}
+
+			form {
+				width: 90%;
+				height: 70%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			ul {
+				list-style-type: none;
+			}
+
+			.form-heading {
+				font-size: 30px;
+				font-weight: 500;
+				margin: 20px 0;
+			}
+
+			#submit {
+				background-color: #e6e7ee;
+				border: 0;
+				border-radius: 77px;
+				box-shadow: 8px 8px 8px #cbced1,
+					-8px -8px 8px #fff;
+				width: 150px;
+				height: 50px;
+			}
+
+			#submit:hover {
+				box-shadow: none;
+			}
+
+			#calculator {
+				text-align: left;
+			}
+
+			footer {
+				position: absolute;
+				bottom: 10px;
+			}
+
+			@media only screen and (max-width: 600px) {
+				.form-box {
+					height: 80vh;
+					width: 300px;
+					position: relative;
+					bottom: 30px;
+				}
+
+				body {
+					overflow-y: hidden;
+					overflow-x: hidden;
+				}
+
+			}
+		</style>
+
 	</main>
+
 </body>
 
 </html>

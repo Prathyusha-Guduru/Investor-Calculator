@@ -20,14 +20,14 @@ choice = ''
 
 #Form Class for choosing the calculator
 class calculator_choice(FlaskForm):
-	calculator = RadioField('Choose the Calculator', choices=[('lumpsum','lumpsum'),('sip','sip'),('fd','fd')])
-	submit = SubmitField('submit')
+	calculator = RadioField('Choose the Calculator', choices=[('lumpsum','Lumpsum'),('sip','SIP'),('fd','FD')])
+	submit = SubmitField('Submit')
 
 #Form class for SIP Calculator
 class SIP_Form(FlaskForm):
-	monthly_investment = DecimalField('Your Monthly Investment')
-	expected_return_rate = StringField('Return Rate : ')
-	time_period = StringField('Time Period : ')
+	monthly_investment = DecimalField('Monthly Investment')
+	expected_return_rate = StringField('Return Rate in %')
+	time_period = StringField('Time Period(years) ')
 	submit = SubmitField('Submit')
 
 #Form class for LUMPSUM calculator

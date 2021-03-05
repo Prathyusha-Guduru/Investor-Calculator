@@ -5,24 +5,150 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap"
+		rel="stylesheet">
 	<title>SIP Calculator</title>
 </head>
 
 <body>
-	<h1>SIP CALCULATOR</h1>
-	<form method="POST">
-		{{ sip_form.hidden_tag() }}
-		{{sip_form.monthly_investment.label}} {{sip_form.monthly_investment}}
-		<br>
-		{{sip_form.time_period.label}} {{sip_form.time_period}}
-		<br>
-		{{sip_form.expected_return_rate.label}} {{sip_form.expected_return_rate}}
-		<br>
-		{{ sip_form.submit()}}
+	<main>
+		<div class="form-box">
+			<h3>Calculate SPI</h3>
+			<form method="POST">
+				{{ sip_form.hidden_tag() }}
+				{{sip_form.monthly_investment.label}} {{sip_form.monthly_investment}}
+				<br>
+				{{sip_form.time_period.label}} {{sip_form.time_period}}
+				<br>
+				{{sip_form.expected_return_rate.label}} {{sip_form.expected_return_rate}}
+				<br>
+				{{ sip_form.submit()}}
 
-	</form>
+			</form>
+		</div>
+		<div class="text-content">
+			<h3>What is SPI ?</h3>
+			<p class="actual-text">
+				Prospective investors can think that SIPs and mutual funds are the same. However, SIPs are merely a
+				method of investing in mutual funds, the other method being a lump sum. A SIP calculator is a tool that
+				helps you determine the returns you can avail when parking your funds in such investment tools.
+				Systematic Investment Plan or SIP is a process of investing a fixed sum of money in mutual funds at
+				regular intervals. SIPs usually allow you to invest weekly, quarterly, or monthly.
+			</p>
+		</div>
+	</main>
 	<style>
+		body {
+			background-color: #e6e7ee;
+			height: 100vh;
+			width: 100vw;
+			font-family: 'Montserrat', sans-serif;
+			position: relative;
+			overflow-y: hidden;
+			overflow-x: hidden;
+		}
 
+		main {
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+		}
+
+		h3 {
+			margin: 0 0 30px 0;
+		}
+
+		.form-box {
+			background-color: #e6e7ee;
+			border-radius: 30px;
+			box-shadow: 7px 7px 14px #cbced1,
+				-7px -7px 14px #fff;
+			width: 500px;
+			height: 400px;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		.text-content {
+			background-color: #e6e7ee;
+			border-radius: 27px;
+			box-shadow: 7px 7px 9px #cbced1,
+				-7px -7px 9px #fff;
+			width: 500px;
+			height: 400px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+		.actual-text {
+			width: 90%;
+		}
+
+		.form-box:hover,
+		.text-content:hover {
+			box-shadow: none;
+		}
+
+		#monthly_investment,
+		#time_period,
+		#expected_return_rate {
+			border: 0;
+			background-color: transparent;
+			border-bottom: 1px black solid;
+			margin: 0 0 0 30px;
+			display: block;
+			text-align: center;
+		}
+
+		#submit {
+			background-color: #e6e7ee;
+			border: 0;
+			border-radius: 77px;
+			box-shadow: 8px 8px 8px #cbced1,
+				-8px -8px 8px #fff;
+			width: 120px;
+			height: 40px;
+			margin: 30px 0;
+		}
+
+		#submit:hover {
+			box-shadow: none;
+		}
+
+
+		@media only screen and (max-width: 600px) {
+			.form-box {
+				width: 300px;
+				overflow-y: visible;
+				position: relative;
+				top: 50px;
+			}
+
+			main {
+				flex-direction: column;
+			}
+
+			.text-content {
+				width: 300px;
+				position: relative;
+				top: 100px;
+				height: fit-content;
+			}
+
+			body {
+				overflow-y: scroll;
+			}
+
+
+		}
 	</style>
 </body>
 
