@@ -1,12 +1,156 @@
-<h1>FD Caclulator</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<form method="POST">
-	{{fd_form.hidden_tag()}}
-	{{fd_form.investment.label}} {{fd_form.investment}}
-	<br>
-	{{fd_form.time_period.label}} {{fd_form.time_period}}
-	<br>
-	{{fd_form.rate_of_interest.label}} {{fd_form.rate_of_interest}}
-	<br>
-	{{fd_form.submit()}}
-</form>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap"
+		rel="stylesheet">
+	<title>Lumpsum Calculator</title>
+</head>
+
+<body>
+	<main>
+		<div class="form-box">
+			<h3>Calculate Maturity Value</h3>
+			<form method="POST">
+				{{fd_form.hidden_tag()}}
+				{{fd_form.investment.label}} {{fd_form.investment}}
+				<br>
+				{{fd_form.time_period.label}} {{fd_form.time_period}}
+				<br>
+				{{fd_form.rate_of_interest.label}} {{fd_form.rate_of_interest}}
+				<br>
+				{{fd_form.submit()}}
+			</form>
+		</div>
+		<div class="text-content">
+			<h3>What is Fixed Deposit ?</h3>
+			<p class="actual-text">
+				A fixed deposit (FD) is a type of term investment offered by several banks and NBFCs. These deposits
+				typically offer a higher rate of interest, subject to certain terms and conditions. The amount you
+				deposit in an FD is locked for a predetermined period which can vary between 7 days and 10 years.
+
+				The interest rate for FDs is fixed at the time of opening the deposit and independent of any
+				fluctuations in the market. Some financial institutions even allow one to break their FDs prematurely on
+				paying a certain penalty fee. An FD calculator can be used to determine the interest and the amount that
+			</p>
+		</div>
+		<style>
+			body {
+				background-color: #e6e7ee;
+				height: 100vh;
+				width: 100vw;
+				font-family: 'Montserrat', sans-serif;
+				position: relative;
+				overflow-y: hidden;
+				overflow-x: hidden;
+			}
+
+			main {
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+			}
+
+			h3 {
+				margin: 0 0 30px 0;
+			}
+
+			.form-box {
+				background-color: #e6e7ee;
+				border-radius: 30px;
+				box-shadow: 7px 7px 14px #cbced1,
+					-7px -7px 14px #fff;
+				width: 500px;
+				height: 400px;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+
+			.text-content {
+				background-color: #e6e7ee;
+				border-radius: 27px;
+				box-shadow: 7px 7px 9px #cbced1,
+					-7px -7px 9px #fff;
+				width: 500px;
+				height: 400px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+
+			.actual-text {
+				width: 90%;
+			}
+
+			.form-box:hover,
+			.text-content:hover {
+				box-shadow: none;
+			}
+
+			#investment,
+			#time_period,
+			#rate_of_interest {
+				border: 0;
+				background-color: transparent;
+				border-bottom: 1px black solid;
+				margin: 0 0 0 30px;
+				display: block;
+				text-align: center;
+			}
+
+			#submit {
+				background-color: #e6e7ee;
+				border: 0;
+				border-radius: 77px;
+				box-shadow: 8px 8px 8px #cbced1,
+					-8px -8px 8px #fff;
+				width: 120px;
+				height: 40px;
+				margin: 30px 0;
+			}
+
+			#submit:hover {
+				box-shadow: none;
+			}
+
+
+			@media only screen and (max-width: 600px) {
+				.form-box {
+					width: 300px;
+					overflow-y: visible;
+					position: relative;
+					top: 50px;
+				}
+
+				main {
+					flex-direction: column;
+				}
+
+				.text-content {
+					width: 300px;
+					position: relative;
+					top: 100px;
+					height: fit-content;
+				}
+
+				body {
+					overflow-y: scroll;
+				}
+
+
+			}
+		</style>
+	</main>
+</body>
+
+</html>
