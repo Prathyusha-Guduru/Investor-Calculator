@@ -19,7 +19,7 @@ choice = ''
 
 #Form Class for choosing the calculator
 class calculator_choice(FlaskForm):
-	calculator = RadioField('SIP OR LUMPSUM', choices=[('lumpsum','lumpsum'),('sip','sip'),('fd','fd')])
+	calculator = RadioField('Choose the Calculator', choices=[('lumpsum','lumpsum'),('sip','sip'),('fd','fd')])
 	submit = SubmitField('submit')
 
 #Form class for SIP Calculator
