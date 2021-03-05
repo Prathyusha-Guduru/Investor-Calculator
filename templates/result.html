@@ -1,21 +1,75 @@
-<h1>Results </h1>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/static/stylesheet.css">
+	<title>Document</title>
+</head>
 
+<body>
+	<h1>Results </h1>
+	<h2>PLEASE WORK</h2>
+	<p>ONLY PROOF THAT SOMETHING HAS CHANGED</p>
 
-{% if choice == 'sip' %}
-<ul>
-	<li>SIP MATURITY VALUE : {{session['maturity_value']}}</li>
-	<form id='sipPlot' method="post">
-		<button type="submit">View Plot</button>
-	</form>
-	<script src="../static/script.js"></script>
-</ul>
-{% elif choice == 'lumpsum' %}
-<ul>
-	<li>LUMPSUM MATURITY VALUE : {{session['lumpsum_maturity_value']}} </li>
-</ul>
-{% elif choice == 'fd' %}
-<ul>
-	<li>FD MATURITY VALUE : {{session['fd_maturity_value']}} </li>
-</ul>
-{% endif %}
+	{% if choice == 'sip' %}
+	<ul>
+		<li>SIP MATURITY VALUE : {{session['maturity_value']}}</li>
+		<script>
+			var maturityValue = {{ session['maturity_value'] }}
+			var investment = {{ session['monthly_investment'] }}
+
+		</script>
+		<form id='plotForm' method="POST">
+			<button type="submit">View Plot</button>
+		</form>
+	</ul>
+	{% elif choice == 'lumpsum' %}
+	<ul>
+		<li>LUMPSUM MATURITY VALUE : {{session['lumpsum_maturity_value'] }} </li>
+		<form id='plotForm' method="POST">
+			<button type="submit">View Plot</button>
+		</form>
+		<script>
+			maturityValue = {{ session['lumpsum_maturity_value'] }}
+			investment = {{ session['lumpsum_investment'] }}
+			console.log('WTF')
+		</script>
+	</ul>
+	{% elif choice == 'fd' %}
+	<ul>
+		<li>FD MATURITY VALUE : {{ session['fd_maturity_value'] }} </li>
+		<form id='plotForm' method="POST">
+			<button type="submit">View Plot</button>
+		</form>
+		<script>
+			maturityValue = {{ session['fd_maturity_value'] }}
+			investment = {{ session['fd_investment'] }}
+			console.log('serious FD SHIT');
+		</script>
+	</ul>
+	{% endif %}
+
+	<script>
+		console.log('This is some bullshit')
+		var x = 5
+
+	</script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+	<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+	<figure class="highcharts-figure">
+		<div id="container"></div>
+		<p class="highcharts-description">
+		</p>
+	</figure>
+	<script src="/static/bullshit.js"></script>
+
+</body>
+
+</html>

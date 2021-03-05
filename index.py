@@ -97,7 +97,7 @@ def sip():
 def lumpsum():
 	lumpsum_form = LUMPSUM_Form()
 	if lumpsum_form.validate_on_submit():
-		session['investment'] = float(lumpsum_form.investment.data)
+		session['lumpsum_investment'] = float(lumpsum_form.investment.data)
 		session['lumpsum_rate'] = float(lumpsum_form.expected_return_rate.data)
 		session['lumpsum_time_period'] = float(lumpsum_form.time_period.data)
 		lumpsum_n = session['lumpsum_time_period']*12
