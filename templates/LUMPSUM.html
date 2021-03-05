@@ -1,12 +1,157 @@
-<h1>LUMPSUM Caclulator</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<form method="POST">
-	{{lumpsum_form.hidden_tag()}}
-	{{lumpsum_form.investment.label}} {{lumpsum_form.investment}}
-	<br>
-	{{lumpsum_form.time_period.label}} {{lumpsum_form.time_period}}
-	<br>
-	{{lumpsum_form.expected_return_rate.label}} {{lumpsum_form.expected_return_rate}}
-	<br>
-	{{lumpsum_form.submit()}}
-</form>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap"
+		rel="stylesheet">
+	<title>Lumpsum Calculator</title>
+</head>
+
+<body>
+	<main>
+		<div class="form-box">
+			<h3>Calculate Maturity Value</h3>
+			<form method="POST">
+				{{lumpsum_form.hidden_tag()}}
+				{{lumpsum_form.investment.label}} {{lumpsum_form.investment}}
+				<br>
+				{{lumpsum_form.time_period.label}} {{lumpsum_form.time_period}}
+				<br>
+				{{lumpsum_form.expected_return_rate.label}} {{lumpsum_form.expected_return_rate}}
+				<br>
+				{{lumpsum_form.submit()}}
+			</form>
+		</div>
+		<div class="text-content">
+			<h3>What is Lumpsum ?</h3>
+			<p class="actual-text">
+				A lumpsum investment is when the depositor invests a significant sum of money on a particular mutual
+				fund scheme. SIP or Systematic Investment Plan, on the other hand, entails the investment of smaller
+				amounts on a monthly basis.
+
+				Both these type of mutual fund investment strategies have their fair share of benefits. Lumpsum
+				investments are particularly preferred by a majority of investors, as there are lesser variables
+				involved and returns are generally on the higher side. To find out the estimated returns on your lumpsum
+				mutual fund investment, you may use a mutual fund lumpsum calculator available online.
+			</p>
+		</div>
+		<style>
+			body {
+				background-color: #e6e7ee;
+				height: 100vh;
+				width: 100vw;
+				font-family: 'Montserrat', sans-serif;
+				position: relative;
+				overflow-y: hidden;
+				overflow-x: hidden;
+			}
+
+			main {
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+				height: 100%;
+				width: 100%;
+			}
+
+			h3 {
+				margin: 0 0 30px 0;
+			}
+
+			.form-box {
+				background-color: #e6e7ee;
+				border-radius: 30px;
+				box-shadow: 7px 7px 14px #cbced1,
+					-7px -7px 14px #fff;
+				width: 500px;
+				height: 400px;
+				text-align: center;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+
+			.text-content {
+				background-color: #e6e7ee;
+				border-radius: 27px;
+				box-shadow: 7px 7px 9px #cbced1,
+					-7px -7px 9px #fff;
+				width: 500px;
+				height: 400px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
+
+			.actual-text {
+				width: 90%;
+			}
+
+			.form-box:hover,
+			.text-content:hover {
+				box-shadow: none;
+			}
+
+			#investment,
+			#time_period,
+			#expected_return_rate {
+				border: 0;
+				background-color: transparent;
+				border-bottom: 1px black solid;
+				margin: 0 0 0 30px;
+				display: block;
+				text-align: center;
+			}
+
+			#submit {
+				background-color: #e6e7ee;
+				border: 0;
+				border-radius: 77px;
+				box-shadow: 8px 8px 8px #cbced1,
+					-8px -8px 8px #fff;
+				width: 120px;
+				height: 40px;
+				margin: 30px 0;
+			}
+
+			#submit:hover {
+				box-shadow: none;
+			}
+
+
+			@media only screen and (max-width: 600px) {
+				.form-box {
+					width: 300px;
+					overflow-y: visible;
+					position: relative;
+					top: 50px;
+				}
+
+				main {
+					flex-direction: column;
+				}
+
+				.text-content {
+					width: 300px;
+					position: relative;
+					top: 100px;
+					height: fit-content;
+				}
+
+				body {
+					overflow-y: scroll;
+				}
+
+
+			}
+		</style>
+	</main>
+</body>
+
+</html>

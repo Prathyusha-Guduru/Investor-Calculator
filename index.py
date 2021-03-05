@@ -35,14 +35,14 @@ class LUMPSUM_Form(FlaskForm):
 	investment = StringField('Total Investment')
 	expected_return_rate = StringField('Return Rate : ')
 	time_period = StringField('Time period : ')
-	submit = SubmitField('submit')
+	submit = SubmitField('Submit')
 
 #Form class for FD calculator
 class FD_Form(FlaskForm):
 	investment = StringField('Total Investment')
 	rate_of_interest = StringField('Return Rate : ')
 	time_period = StringField('Time period : ')
-	submit = SubmitField('submit')
+	submit = SubmitField('Submit')
 
 
 
