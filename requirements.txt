@@ -1,8 +1,6 @@
 absl-py==0.10.0
 alabaster==0.7.12
-anaconda-client==1.7.2
-anaconda-navigator==1.10.0
-anaconda-project @ file:///tmp/build/80754af9/anaconda-project_1610472525955/work
+
 appdirs==1.4.4
 argh==0.26.2
 argon2-cffi @ file:///C:/ci/argon2-cffi_1613038019788/work
@@ -37,15 +35,14 @@ chardet @ file:///C:/ci/chardet_1607706910910/work
 chart-studio==1.1.0
 click @ file:///home/linux1/recipes/ci/click_1610990599742/work
 cloudpickle @ file:///tmp/build/80754af9/cloudpickle_1598884132938/work
-clyent==1.2.2
+
 cmake==3.18.2.post1
 colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
 colorlover==0.3.0
 comtypes==1.1.8
-conda==4.9.2
-conda-build==3.21.4
-conda-package-handling @ file:///C:/ci/conda-package-handling_1603018162806/work
-conda-verify==3.4.2
+
+
+
 contextlib2==0.6.0.post1
 cryptography @ file:///C:/ci/cryptography_1613401470461/work
 cufflinks==0.17.3
