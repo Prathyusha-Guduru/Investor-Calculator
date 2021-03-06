@@ -6,7 +6,6 @@ colorama==0.4.4
 decorator==4.4.2
 Flask @ file:///home/ktietz/src/ci/flask_1611932660458/work
 Flask-WTF==0.14.3
-gunicorn==20.0.4
 ipykernel==5.3.4
 ipython==7.18.1
 ipython-genutils==0.2.0
@@ -35,4 +34,4 @@ wcwidth==0.2.5
 Werkzeug @ file:///home/ktietz/src/ci/werkzeug_1611932622770/work
 wincertstore==0.2
 wrapt==1.12.1
-WTForms==2.3.3
+WTForms @ file:///tmp/build/80754af9/wtforms_1597707484216/work
