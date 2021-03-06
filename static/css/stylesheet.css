@@ -3,15 +3,18 @@ body {
 	height: 100vh;
 	width: 100vw;
 	font-family: 'Montserrat', sans-serif;
+	position: relative;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
 	height: 100%;
 	width: 100%;
+	flex-direction: column;
 }
 
 .form-box {
@@ -19,9 +22,12 @@ main {
 	border-radius: 30px;
 	box-shadow: 7px 7px 14px #cbced1,
 		-7px -7px 14px #fff;
-	width: 300px;
-	height: 300px;
+	width: 500px;
+	height: 400px;
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 }
 
@@ -29,10 +35,58 @@ main {
 	box-shadow: none;
 }
 
-ul{
+form {
+	width: 90%;
+	height: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+ul {
 	list-style-type: none;
 }
 
-.form-heading{
-	background-color: lawngreen;
+.form-heading {
+	font-size: 30px;
+	font-weight: 500;
+	margin: 20px 0;
+}
+
+#submit {
+	background-color: #e6e7ee;
+	border: 0;
+	border-radius: 77px;
+	box-shadow: 8px 8px 8px #cbced1,
+		-8px -8px 8px #fff;
+	width: 150px;
+	height: 50px;
+}
+
+#submit:hover {
+	box-shadow: none;
+}
+
+#calculator {
+	text-align: left;
+}
+
+footer {
+	position: absolute;
+	bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+	.form-box {
+		height: 80vh;
+		width: 300px;
+		position: relative;
+		bottom: 30px;
+	}
+
+	body {
+		overflow-y: hidden;
+		overflow-x: hidden;
+	}
+
 }
