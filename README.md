@@ -1,7 +1,8 @@
 # Investor-Calculator
 A tool to help young people get started with different kinds of investment methods.
 <br>
-Well everything was fine, except for deploying on heruko.There was an error in the envionrment and stackoverflow did not have an answer.
+
+Link to the live version 🔥 : https://safe-wave-34767.herokuapp.com/
 
 ## Screenshots
 <hr>
