@@ -25,6 +25,11 @@
 				<br>
 				{{fd_form.submit()}}
 			</form>
+			<ul>
+				{% for error in fd_form.investment.error %}
+				<li>{{error}}</li>
+				{% endfor %}
+			</ul>
 		</div>
 		<div class="text-content">
 			<h3>What is Fixed Deposit ?</h3>

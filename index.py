@@ -4,7 +4,7 @@ import decimal
 from flask import Flask, render_template, session, redirect, url_for, session, flash
 from flask_wtf import FlaskForm
 from wtforms import (StringField, BooleanField,SubmitField,DecimalField,RadioField)
-from wtforms.validators import DataRequired,InputRequired
+from wtforms.validators import DataRequired,InputRequired,NumberRange
 from math import pow
 
 
@@ -25,23 +25,23 @@ class calculator_choice(FlaskForm):
 
 #Form class for SIP Calculator
 class SIP_Form(FlaskForm):
-	monthly_investment = DecimalField('Monthly Investment',validators=[InputRequired()])
-	expected_return_rate = StringField('Return Rate in %',validators=[InputRequired()])
-	time_period = StringField('Time Period(years) ',validators=[InputRequired()])
+	monthly_investment = DecimalField('Monthly Investment',validators=[InputRequired(),NumberRange(min = 0)])
+	expected_return_rate = StringField('Return Rate in %',validators=[InputRequired(),NumberRange(min = 0,max = 100)])
+	time_period = StringField('Time Period(years) ',validators=[InputRequired(),NumberRange(min = 0)])
 	submit = SubmitField('Submit')
 
 #Form class for LUMPSUM calculator
 class LUMPSUM_Form(FlaskForm):
-	investment = StringField('Total Investment',validators=[InputRequired()])
-	expected_return_rate = StringField('Return Rate : ',validators=[InputRequired()])
-	time_period = StringField('Time period : ',validators=[InputRequired()])
+	investment = StringField('Total Investment',validators=[InputRequired(),NumberRange(min = 0)])
+	expected_return_rate = StringField('Return Rate : ',validators=[InputRequired(),NumberRange(min = 0,max = 100)])
+	time_period = StringField('Time period : ',validators=[InputRequired(),NumberRange(min = 0)])
 	submit = SubmitField('Submit')
 
 #Form class for FD calculator
 class FD_Form(FlaskForm):
-	investment = StringField('Total Investment',validators=[InputRequired()])
-	rate_of_interest = StringField('Return Rate : ',validators=[InputRequired()])
-	time_period = StringField('Time period : ',validators=[InputRequired()])
+	investment = StringField('Total Investment',validators=[InputRequired(),NumberRange(min = 0)])
+	rate_of_interest = StringField('Return Rate : ',validators=[InputRequired(),NumberRange(min = 0,max = 100)])
+	time_period = StringField('Time period : ',validators=[InputRequired(),NumberRange(min = 0)])
 	submit = SubmitField('Submit')
 
 
