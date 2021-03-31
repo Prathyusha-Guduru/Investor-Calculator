@@ -4,7 +4,7 @@ import decimal
 from flask import Flask, render_template, session, redirect, url_for, session, flash
 from flask_wtf import FlaskForm
 from wtforms import (StringField, BooleanField,SubmitField,DecimalField,RadioField)
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired,InputRequired
 from math import pow
 
 
@@ -20,28 +20,28 @@ choice = ''
 
 #Form Class for choosing the calculator
 class calculator_choice(FlaskForm):
-	calculator = RadioField('Choose the Calculator', choices=[('lumpsum','Lumpsum'),('sip','SIP'),('fd','FD')])
+	calculator = RadioField('Choose the Calculator', choices=[('lumpsum','Lumpsum'),('sip','SIP'),('fd','FD')],validators=[InputRequired()])
 	submit = SubmitField('Submit')
 
 #Form class for SIP Calculator
 class SIP_Form(FlaskForm):
-	monthly_investment = DecimalField('Monthly Investment')
-	expected_return_rate = StringField('Return Rate in %')
-	time_period = StringField('Time Period(years) ')
+	monthly_investment = DecimalField('Monthly Investment',validators=[InputRequired()])
+	expected_return_rate = StringField('Return Rate in %',validators=[InputRequired()])
+	time_period = StringField('Time Period(years) ',validators=[InputRequired()])
 	submit = SubmitField('Submit')
 
 #Form class for LUMPSUM calculator
 class LUMPSUM_Form(FlaskForm):
-	investment = StringField('Total Investment')
-	expected_return_rate = StringField('Return Rate : ')
-	time_period = StringField('Time period : ')
+	investment = StringField('Total Investment',validators=[InputRequired()])
+	expected_return_rate = StringField('Return Rate : ',validators=[InputRequired()])
+	time_period = StringField('Time period : ',validators=[InputRequired()])
 	submit = SubmitField('Submit')
 
 #Form class for FD calculator
 class FD_Form(FlaskForm):
-	investment = StringField('Total Investment')
-	rate_of_interest = StringField('Return Rate : ')
-	time_period = StringField('Time period : ')
+	investment = StringField('Total Investment',validators=[InputRequired()])
+	rate_of_interest = StringField('Return Rate : ',validators=[InputRequired()])
+	time_period = StringField('Time period : ',validators=[InputRequired()])
 	submit = SubmitField('Submit')
 
 
@@ -103,7 +103,7 @@ def lumpsum():
 		session['lumpsum_rate'] = float(lumpsum_form.expected_return_rate.data)
 		session['lumpsum_time_period'] = float(lumpsum_form.time_period.data)
 		lumpsum_n = session['lumpsum_time_period']*12
-		session['lumpsum_maturity_value'] = round(session['investment'] * ((1+ (session['lumpsum_rate']/100))**session['lumpsum_time_period']),2)
+		session['lumpsum_maturity_value'] = round(session['lumpsum_investment'] * ((1+ (session['lumpsum_rate']/100))**session['lumpsum_time_period']),2)
 		return redirect(url_for('result'))
 		
 	return render_template('LUMPSUM.html',lumpsum_form = lumpsum_form)
@@ -134,7 +134,7 @@ def result():
 
 
 if __name__ == '__main__':
-	app.run()
+	app.run(debug = True)
 
 
 
