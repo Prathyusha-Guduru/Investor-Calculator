@@ -11,9 +11,9 @@ Link to the live version 🔥 : https://safe-wave-34767.herokuapp.com/
 <img src = '/screenshots/Screenshot-1.jpg'>
 <br>
 <br>
-<img src = 'Screenshot-2.jpg'>
+<img src = '/screenshots/Screenshot-2.jpg'>
 <br>
 <br>
-<img src = 'Screenshot-3.jpg'>
+<img src = '/screenshots/Screenshot-3.jpg'>
 
 
